@@ -1,0 +1,21 @@
+# Fetch domains
+query GetDomains {
+  domains {
+    id
+    name
+  }
+}
+
+# Login mutation
+mutation Login($domainName: String, $username: String!, $password: String!) {
+  login(domainName: $domainName, username: $username, password: $password) {
+    id
+    nbf
+    exp
+  }
+}
+
+# Add a post without authentication
+mutation postCreateBlind($postAdd: PostAddBlind!) {
+  postCreateBlind(postAdd: $postAdd)
+}

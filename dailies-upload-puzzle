@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source "$(dirname $(realpath "$0"))"/.env
+"$(dirname $(realpath "$0"))"/venv/bin/python "$(dirname $(realpath "$0"))"/dailies-upload.py "$@"

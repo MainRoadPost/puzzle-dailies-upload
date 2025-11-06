@@ -30,7 +30,6 @@ uv run --script ./dailies-upload.py --username "user_login" --project "MyAwesome
    ```bash
    uv run ariadne-codegen
    ```
-> [!IMPORTANT]
 > **Важно:** Запуск `ariadne-codegen` является обязательным шагом перед первым запуском приложения и после любых изменений в файлах `schema.graphql` или `queries.graphql`.
 
 

@@ -61,7 +61,7 @@ async def main():
     parser.add_argument("--files", nargs="+")
     parser.add_argument("--tags", nargs="+", required=False)
     parser.add_argument("--path", nargs="+", required=True)
-    parser.add_argument("--src_files", nargs="+")
+    parser.add_argument("--src-files", nargs="+")
 
     # Parse the command line arguments
     args = parser.parse_args()
@@ -77,17 +77,10 @@ async def main():
     path = args.path
     src_files = args.src_files
 
-    description = {
-        "ops": [
-            {"insert": description_text + "\n"},
-        ]
-    }
-
+    description = f"{description_text} \n "
     if src_files:
         for src in src_files:
-            description["ops"].append({"insert": src})
-            description["ops"].append({"attributes": {"list": "bullet"}, "insert": "\n"})
-    description["ops"].append({"insert": "\n"})
+            description += f" * [{os.path.basename(src)}](rvlink://{src}) (Open in RV) \n"
 
     await upload_post(puzzle_upload_url, username, project, path, description, tags, files)
 
